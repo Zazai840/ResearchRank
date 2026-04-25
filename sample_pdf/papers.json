@@ -1,0 +1,606 @@
+{
+  "papers": [
+    {
+      "id": "79b5af1ab7fc4c16a780abebacb5d0e43d12",
+      "path": "/Users/zazai/workspace/zazai840/ResearchRank/sample_pdf/79b5af1ab7fc4c16a780abebacb5d0e43d12.pdf",
+      "title": "Deep learning and radiomics-driven algorithm for automated identification of May-Thurner syndrome in Iliac CTV imaging",
+      "authors": [
+        "﻿Lufeng﻿ ﻿Chen﻿"
+      ],
+      "year": 2024,
+      "abstract": "",
+      "introduction": "May-Thurner syndrome (MTS), also known as iliac vein \ncompression syndrome, is a condition that frequently goes \nunderdiagnosed. This syndrome is associated with significant \nmorbidity, predominantly due to its correlation with deep vein \nthrombosis (DVT), especially in the left lower extremity (1). The \npathophysiological basis involves the compression of the left common \niliac vein by the overriding right common iliac artery, first described \nin cadaveric studies by May and Thurner (2). This physiological \ncondition is characterized by the compression of the left common iliac \nvein caused by the encroaching right common iliac artery, resulting in \na disruption of the normal venous return from the lower limbs. \nConsequently, this disorder heightens the risk of venous stasis and the \ndevelopment of thrombi in affected individuals (3, 4).\nDiagnosing MTS can be challenging due to its nonspecific clinical \nmanifestations, which can range from asymptomatic cases to chronic \nleg physiology pain, physiology swelling, and severe DVT (5). \nDiagnostic challenges arise from dual aspects: ① clinical ambiguity \nwith 22%–33% asymptomatic presentations (6), and ② fundamental \nlimitations of conventional imaging modalities. While Doppler \nultrasound demonstrates ≤68% sensitivity for pelvic vein assessment \n(acoustic shadowing artifacts impede 84% examinations) (7, 8). \nTraditional diagnostic methods like Doppler ultrasound have \nlimitations in visualizing the pelvic veins where the compression \noccurs (9). Computed Tomography Venography (CTV) has become \nan essential instrument in the diagnosis and evaluation of MTS, \nproviding enhanced visualization of venous anatomy (10). Computed \nTomography Venography (CTV) stands out for its ability to provide \nprecise anatomical details essential for identifying the location and \nextent of venous compression and collateral pathways. This \ninformation is crucial for developing a comprehensive treatment plan \n(11). CTV’s capability to produce high-resolution cross-sectional \nimages is invaluable in clinical practice, This not only aids in the \ndiagnosis of iliac vein compression but also allows for the identification \nof simultaneous conditions that may influence the selected treatment \nstrategy. Including Deep Vein Thrombosis (DVT) and other \nanatomical abnormalities (12–14).\nLiterature review\nCurrent diagnostic methodologies for MTS detection have \nevolved through three distinct technological phases. Traditional \nimaging modalities including Doppler ultrasound and CT venography, \nwhile clinically valuable, exhibit well-documented limitations in pelvic \nvenous assessment. Specifically, Doppler ultrasound demonstrates \n≤68% sensitivity for iliac vein evaluation due to acoustic shadowing \nartifacts that impede 84% of examinations, while CTV, despite \nachieving 0.6 mm isotropic resolution, suffers from inter-observer \nvariability (κ = 0.42–0.57) and metal artifact interference in 38% of \nprostheses-bearing patients (15).\nThe emergence of deep learning (DL) in vascular imaging has \nintroduced novel analytical paradigms. Convolutional Neural \nNetworks (CNNs) have demonstrated particular efficacy in vascular \nanomaly detection, with U-Net architectures achieving 89% \nsegmentation accuracy in iliac vessel identification (16). However, \ncurrent implementations predominantly focus on thrombus detection \nrather than anatomical compression analysis—ResNet-50 models \nattained 0.91 AUC for DVT classification but showed limited \nperformance (AUC = 0.76) in distinguishing compression etiologies \n(17, 18). This performance gap highlights the need for MTS-specific \narchitectural adaptations.\nParallel developments in radiomics present complementary \nopportunities. Radiomic signature analysis of iliac venous structures \nhas enabled quantitative characterization of compression patterns, \nwith a recent multicenter study identifying 12 texture features \nsignificantly correlated (p < 0.01) with hemodynamically significant \nMTS (19). When integrated with CNN-based anatomical \nsegmentation, hybrid models have shown 15% improvement in \nstenosis grading accuracy compared to standalone approaches. \nNevertheless, existing radiomic studies frequently neglect dynamic \nflow parameters crucial for MTS hemodynamic assessment.\nCurrent limitations in the field are threefold: ① Insufficient \nintegration of spatial–temporal features in DL architectures for \ncompression analysis; ② Lack of standardized radiomic pipelines for \nvenous collateral network quantification; ③ Inadequate validation on \nheterogeneous patient cohorts, particularly for post-thrombotic MTS \nvariants. Recent systematic reviews indicate that 73% of vascular DL \nstudies utilize single-center datasets with limited generalizability, \nwhile 68% of radiomic MTS investigations employ retrospective \ndesigns without external validation. These methodological \nshortcomings underscore the necessity for our proposed multimodal \napproach \ncombining \noptimized \nCNN \narchitectures \nwith \nhemodynamic-aware radiomic analysis.\nInterpreting Computed Tomography Venography (CTV) is a \ncomplex task that demands expertise, especially in distinguishing \nbetween normal anatomical variations and pathological findings \nassociated with conditions like MTS (20). Radiologists play a pivotal \nrole in ensuring accurate interpretation. One challenge with CTV is \nthe time-intensive manual assessment of images, which could \npotentially lead to delays in diagnosing conditions, especially in \nurgent situations (21). Current Computerized Tomography \nVenography (CTV) techniques, though achieving 0.6 mm isotropic \nresolution, still suffer from ① inter-observer variability (κ = 0.42–\n0.57), and ② metal artifact interference reducing diagnostic confidence \nin 38% prostheses-bearing patients. Finding ways to streamline this \nprocess is essential for improving efficiency. Additionally, the use of \nintravenous contrast during CTV presents certain risks to specific \npatient populations. Thus, optimizing both the imaging techniques \nand interpretation methodologies is crucial to minimize potential \ncomplications (22).\nTo address these challenges, the implementation of deep learning \n(DL) techniques in the field of medical imaging has attracted \nconsiderable attention, owing to their ability to enhance the detection \nand evaluation of MTS through the examination of Computerized \nTomography Volumetrics (CTV) (23). Deep learning models, \nparticularly Convolutional Neural Networks (CNNs), have shown \nconsiderable potential in the domains of image identification and \ncategorization (24). They have the ability to recognize complex \npatterns within imaging data, which enhances the consistency and \nspeed of image analysis (25).\nBy harnessing extensive datasets containing annotated Computed \nTomography Venography (CTV) images, deep learning (DL) \nalgorithms can be trained to identify subtle and intricate characteristics \nlinked to MTS. This approach holds the potential to surpass the \n\nChen et al.\b\n10.3389/fmed.2025.1526144\nFrontiers in Medicine\n03\nfrontiersin.org\ndiagnostic accuracy of even experienced radiologists (26). Moreover, \nDL techniques offer the capability to quantify venous compression and \nassess the hemodynamic significance of identified lesions, thereby \nproviding valuable insights for decision-making in interventional \ntreatments like stenting (27, 28). The application of DL in the \ninterpretation of CTV images for MTS represents a burgeoning field \nwith the potential to significantly impact patient care. Accurate and \nefficient DL-based diagnostic tools could lead to earlier and more \nprecise interventions, ultimately improving patient outcomes (29). \nHowever, realizing this potential necessitates addressing challenges \nrelated to dataset curation, algorithm training and validation, \nintegration into clinical workflows, and addressing concerns related \nto patient privacy and algorithm transparency (30, 31).\nThe future of MTS management is poised for transformation as \nadvancements in deep learning provide new avenues for enhancing \nthe utility of CTV. Through interdisciplinary collaboration, the \nconvergence of radiology, vascular medicine, and artificial intelligence \ncan herald a new era in the diagnosis and treatment of MTS, turning \nthe tides against this elusive vascular syndrome (32, 33).\nData collection\nThe study aimed to create a dataset of Iliac CTV scans for the \nautomated detection of MTS using deep learning and radiomics. The \ndataset used in this study is representative of diverse patient \npopulations, including individuals across different age groups \n(18–85 years) and genders (52% female, 48% male). While MTS is \nmore prevalent in females, particularly in the 20–50 age group, our \ngender distribution reflects the inclusion of both primary MTS cases \nand secondary cases associated with conditions like deep vein \nthrombosis (DVT), which can affect both genders. Data were collected \nfrom multiple clinical settings, such as tertiary care hospitals and \ncommunity clinics, to ensure variability in clinical presentations and \nimaging protocols. This diversity enhances the generalizability of our \nfindings and supports the applicability of the proposed methodology \nto a broad spectrum of patients with MTS. The inclusion and exclusion \ncriteria were designed to ensure that the selected cases were relevant \nto the research objectives while excluding cases with potential \nconfounding factors or data quality issues. In the Algorithmic \nInvestigation for Automated Detection of May-Thurner syndrome \nfrom Iliac CTV imaging via Deep Learning and Radiomics, the \ncriteria for including and excluding participants in the study \npopulation were outlined as follows.\nInclusion Criteria:\n\t 1.\t Individuals for whom Iliac Computed Tomography \nVenography (CTV) scans are accessible.\n\t 2.\t Patients who underwent Digital Subtraction Angiography \n(DSA) performed by experienced chief physicians to confirm \nthe presence of MTS or not.\n\t 3.\t Cases without artifacts or image quality issues in the Iliac CTV \nscans do not affect the analysis.\nExclusion Criteria:\n\t 1.\t Patients without available Iliac CTV scans.\n\t 2.\t Patients who did not undergo DSA surgery for \nMTS confirmation.\n\t 3.\t Cases with incomplete or inadequate data.\n\t 4.\t Cases with contraindications to the imaging procedures.\n\t 5.\t Cases with artifacts or image quality issues in the Iliac CTV \nscans that could affect the analysis.\nFigure 1A demonstrates an example of a left iliac vein meeting \nimage quality criteria with optimal contrast filling and no artifacts, \nwhile Figures 1B,C illustrate excluded cases due to incomplete contrast \nopacification or imaging artifacts that could compromise algorithmic \ntraining. Figure 1D represents a post-iliac vein stenting case, which \nwas also excluded from the study cohort in accordance with our \nexclusion criteria.\nA database of left iliac CTV scans was collected from the CT/MRI \ndepartment, anonymized to comply with HIPAA regulations, and \nlabeled by experienced radiologists to indicate the presence or absence \nof MTS. It’s important to note that all patients underwent Digital \nSubtraction Angiography (DSA) surgery performed by experienced \nphysicians, and DSA was considered the gold standard for confirming \nthe presence of MTS. This dataset comprises a total of 490 cases, with \n201 cases showing positive results for MTS and 289 cases with \nnegative results.\nThe scanning protocol for Iliac Vein CT Venography (CTV) \ninvolves several important steps. Firstly, patient preparation is crucial, \nincluding ensuring the patient is well-hydrated, obtaining informed \nFIGURE 1\nRepresentative CTV cases: (A) Included scan meeting criteria (complete contrast, no artifacts); (B,C) Excluded cases; (D) Post-stent exclusion.\n\nChen et al.\b\n10.3389/fmed.2025.1526144\nFrontiers in Medicine\n04\nfrontiersin.org\nconsent, and checking for medical history and contrast agent \nallergies. Following the preparatory procedures, the patient is \npositioned supine on the table of the CT scanner. An intravenous \nadministration of a contrast agent is then performed using a power \ninjector, delivering the medium at a rate of 3 to 4 mL per second, \ngenerally utilizing a non-ionic iodinated contrast substance. The \nchoice of scanner is typically a Multidetector CT (MDCT) for \nCTV. Specific scanner parameters are set to achieve high-quality \nimages. The parameters established for the imaging protocol consist \nof a slice thickness that ranges from 1 to 2 mm. The imaging \ntechnique captures the entire length of the iliac vein, from the \ncommon iliac vein through to the femoral vein. In general practice, \nthe tube voltage is fixed at 120 kV, whereas the tube current is \nadjusted based on the individual’s physical attributes, typically falling \nbetween 200 and 300 mA. To ensure effective data collection, a pitch \nbetween 0.75 and 1.5 is employed, and a reconstruction interval of \n1 mm is utilized to achieve images of superior quality. The scan delay \nis determined to ensure optimal timing for image acquisition, usually \noccurring around 20–30 s after contrast injection. The subsequent \nsteps in post-processing encompass multi-planar reformatting (MPR) \nand maximum intensity projection (MIP), which facilitate the \nvisualization of the iliac veins from various angles, and both arterial \nand venous phase images are acquired for comprehensive \nvisualization. Finally, the acquired images are carefully evaluated for \nany venous pathology or abnormalities, such as deep vein thrombosis \n(DVT) or compression syndromes. As shown in Figure 2, we present \nthe CTV images from our research dataset  along with their \nmanifestations in DSA. We separately display the appearances of \nMTS-positive CTV and DSA.\nSegmentation of iliac vein in CTV\nThe dataset underwent several preprocessing steps to ensure \nconsistency and enhance model performance. First, all Computed \nTomography Venography (CTV) images were resampled to a uniform \nvoxel size of 0.6 mm3 to standardize spatial resolution across scans. \nImage normalization was performed by scaling the intensity values to \na range of [0, 1] using min-max normalization, which reduces \nvariability in pixel intensity due to differences in imaging protocols. \nTo address class imbalance in the dataset, we  applied data \naugmentation techniques, including random rotations (±10°), \nhorizontal and vertical flips, and slight translations (±5% of image \ndimensions). These augmentations were applied only to the training \nset to increase its diversity and improve model generalization. \nAdditionally, regions of interest (ROIs) containing the iliac veins and \nsurrounding structures were manually annotated by experienced \nradiologists to provide ground truth labels for model training \nand evaluation.\nThe 10-fold cross-validation method is employed to both train \nand assess the performance of our deep learning-driven automatic \nvein segmentation algorithm. After 10-fold cross-validation, each \ncase obtains a segmentation result from a deep learning model. \nWe  juxtapose these findings against the manual segmentation \noutcomes provided by seasoned medical professionals. Furthermore, \nwe compute various segmentation performance evaluation metrics \nto gauge the efficacy of the model’s segmentation capabilities. \nSubsequently, this segmentation data is employed to construct a \nradiomics model aimed at identifying the presence of \nMTS syndrome.\nThe initial phase of the conversion procedure involved the \nconversion of Digital Imaging and Communications in Medicine \n(DICOM) files, sourced from a PACS batch, into the NIFTI \nformat. Under a rigorous multi-stage annotation protocol, all left \niliac vein structures were meticulously delineated using ITK-SNAP \nsoftware (version 4.0.0). This critical annotation process was \nconducted through collaborative verification by three senior \nattending physicians (with over 10 years of vascular imaging \nexperience) and one biomedical engineer, with final annotations \nrequiring unanimous approval from all three physicians to ensure \nmaximal inter-observer consistency. Technical specifications \nincluded: (1) Optimized visualization parameters set at a window \nwidth of 350 Hounsfield units (HU) and window level of 60 HU; \n(2) Systematic removal of osseous components through multi-\nplanar reconstruction analysis to establish gold-standard \nreferences for segmentation model training. This consensus-\ndriven annotation framework significantly reduced intra- and \ninter-operator variability (achieving Dice similarity coefficients > \n0.95  in validation tests), thereby enhancing the anatomical \nFIGURE 2\n(A) Represents a visual output obtained from Digital Subtraction Angiography (DSA) and also the gold standard for our experimental grouping, \nindicating that the patient’s iliac vein is almost occluded. (B,C) The axial and coronal images of CTV, respectively. (D) 3D reconstruction of the iliac vein.\n\nChen et al.\b\n10.3389/fmed.2025.1526144\nFrontiers in Medicine\n05\nfrontiersin.org\naccuracy and clinical reliability of the subsequent automated \nsegmentation models.\nImage segmentation serves as a fundamental aspect of computer \nvision, entailing the division of images into significant segments that \nalign with different objects or areas of interest. The UPerNet \narchitecture tackles the intricacies associated with semantic \nsegmentation by seamlessly combining multi-scale features and \nleveraging contextual information to enhance the accuracy of \nsegmentation (34).\nThe detailed depiction of the segmentation model is illustrated in \nFigure 3. The UPerNet framework consists of three primary elements: \n(1) a Feature Pyramid Network (FPN) designed for the extraction of \nFIGURE 3\nThe procedure for both training and validating the UPerNet model aimed at segmentation is outlined, subsequently leading to the development and \nassessment of a radiomic signature for the diagnosis of MTS. The terms used include LASSO, this refers to various methodologies utilized in statistical \nanalysis and machine learning: LASSO, which denotes the least absolute shrinkage and selection operator; mRMR, signifying minimum redundancy \nmaximum relevance; ROC, representing receiver operating characteristic; and SHAP, which is an acronym for SHapley Additive exPlanations.\n\nChen et al.\b\n10.3389/fmed.2025.1526144\nFrontiers in Medicine\n06\nfrontiersin.org\nfeatures across multiple scales, (2) a Global Aggregation Module \n(GAM) designed to improve contextual understanding, and (3) a \nPerceptual Enhancement Module (PEM) focused on the enhancement \nof features.\nThe FPN module operates through a dual-pathway system \nthat integrates both bottom-up and top-down processes, enabling \nthe network to capture features across different scales. This dual \nmechanism allows for the merging of detailed nuances with \nbroader contextual elements, making the FPN essential for \neffectively managing objects of diverse sizes while maintaining \nspatial coherence.\nThe Global Attention Module (GAM) enhances UPerNet’s \ncapacity to extract extensive contextual dependencies by integrating \ninformation across multiple scales. By employing global context \npooling and convolutional operations, the network is equipped to \nidentify complex relationships among various parts of an image. This \ncomponent serves as a critical tool for achieving precise segmentation \nwithin complicated scenes, thereby playing a pivotal role in the overall \neffectiveness of UPerNet.\nThe Perceptual Enhancement Module (PEM) acts as a pivotal \nplatform for the enhancement of features and the enrichment of \nsemantic content. Drawing inspiration from the mechanisms \nunderlying human visual perception, the PEM incorporates perceptual \nloss functions that effectively steer the training pathway of the \nnetwork. By ensuring that the features obtained are in harmony with \nhuman perceptual evaluations, the module significantly enhances \nUPerNet’s ability to generate segmentation results that are semantically \ncoherent and meaningful.\nThe application of Focal Loss in the training of segmentation \nmodels presents an effective approach to tackle the issue of class \nimbalance while simultaneously improving boundary precision. By \nadaptively modifying the contributions of loss according to the \nconfidence of predictions, Focal Loss directs the network’s attention \ntoward more difficult areas, resulting in enhanced segmentation \noutcomes. The positive outcomes observed across diverse datasets \nunderscore the potential of Focal Loss to elevate the state-of-the-art \nin image segmentation (35).\nTraining process of segmentation model\nThe study utilized an NVIDIA RTX A5000 graphics processing \nunit, which possesses a memory capacity of 24 GB. For the software \nenvironment, Python version 3.6 was implemented, supplemented by \nlibraries including Pytorch 0.4.1, OpenCV, Numpy, and \nSimpleITK. The input data comprised thin-layer computed \ntomography (CT) images and the corresponding labels (36). The \noutcome achieved was a segmented representation of the iliac vein in \nCTV. In the initial stages of training, a batch size comprising 16 \nimages was employed for every iteration, and the learning rate was \nadjusted to 10−4, with a cumulative total of 200 training epochs.\nEvaluation of segmentation performance\nThe objective assessment approach utilized the Dice coefficient \nfrom the test dataset to evaluate the performance of the \nsegmentation model.\n\t\n(\n)\n2 | A\nB |\nDice A,B\n| A |\n| B |\n∩\n=\n+\nTo assess the segmentation performance through subjective \nevaluation, a 10-fold cross-validation method was employed, and the \nmodel that had been trained was subsequently utilized to forecast the \ndata pertaining to the remaining cases.\nRadiomic feature extraction\nA stratified random sampling method was employed to \ndistinguish between the MTS and non-MTS cohorts. The cases were \nallocated proportionally into a training dataset and an external \nvalidation dataset at a ratio of 7:3. A total of 1,794 distinct features \nwere extracted utilizing the PyRadiomics framework, which can \nbe broadly classified into several categories: first-order features, shape \ndescriptors, and various texture matrices, including the Gray Level \nCo-occurrence Matrix (GLCM), Gray Level Size Zone Matrix \n(GLSZM), Gray Level Run Length Matrix (GLRLM), Neighboring \nGray Tone Difference Matrix (NGTD), and Gray Level Dependence \nMatrix (GLDM). The filtering parameters applied encompassed \nwavelet transformations, Laplacian of Gaussian (LoG), Square, Square \nRoot, logarithmic, exponential, gradient, along with Local Binary \nPattern in two dimensions (LBP2D) and three dimensions (LBP3D). \nThe bin width was established at 25, and the resampled voxel \ndimensions were set to 3 × 3 × 3. For the LoG filter, the kernel sizes \nranged from 1 to 5.\nRadiomic feature selection and radiomic \nsignature construction\nThe characteristic derived from radiomic analysis dataset was \nsubjected to a preprocessing phase, during which outliers and missing \nvalues were substituted with the median. This was subsequently \naccompanied by standardization of the data to mitigate the effects of \ndimensionality. Furthermore, we employed the minimum-redundancy \nmaximum-relevance (mRMR) algorithm to pinpoint the nine most \ncrucial features that exhibit a robust correlation with MTS. In this \nstudy, we retained 10 features using the mRMR algorithm. The Least \nAbsolute Shrinkage and Selection Operator (LASSO) regression \nmethodology was employed to identify the non-zero coefficient \nfeatures that exhibit the highest relevance to the diagnosis of MTS \nfrom the features retained. Subsequently, the radiomics score \n(Rad-score) for each MTS was computed by executing a linear \ncombination of the weighted coefficients associated with the selected \nfeatures. The procedural framework for radiomics analysis and the \ndevelopment of the segmentation model is illustrated in Figure 3.\nStatistical analysis\nAll analyses performed in this study were carried out using R \nsoftware (http://www.Rproject.org, version: 3.6.1). To compare \ncontinuous and categorical variables, the t-test and Chi-square test were \nutilized, respectively, with a p value threshold of less than 0.05 considered \n\nChen et al.\b\n10.3389/fmed.2025.1526144\nFrontiers in Medicine\n07\nfrontiersin.org\nstatistically significant. The diagnostic efficacy of the radiomic signature \nwas evaluated through receiver operating characteristic (ROC) curve \nanalysis. Furthermore, the Hosmer-Lemeshow test was employed to \nassess the goodness of fit of the radiomic signature.",
+      "conclusion": "In summary, this research presents a novel approach for the \ndiagnosis and evaluation of MTS by integrating deep learning \ntechniques with radiomic analysis. Utilizing a meticulously curated \ndataset of 490 Iliac Computed Tomography Venography (CTV) scans, \nrigorously labeled and validated against Digital Subtraction \nAngiography (DSA), our study demonstrates the potential of artificial \nintelligence in enhancing diagnostic accuracy. The incorporation of \nConvolutional Neural Networks (CNNs) enables automated detection \nof subtle imaging features that may be  challenging for human \nradiologists to discern, thereby improving both sensitivity and \nspecificity in MTS diagnosis. This approach offers several advantages \nover traditional methods, including reduced observer variability, faster \nimage interpretation, and potential integration into clinical decision-\nsupport systems. From a clinical perspective, this model could \nstreamline MTS screening, particularly in high-risk patients, and serve \nas an adjunct to radiologists in busy clinical settings. Future research \nshould focus on refining the model through larger, multi-center \ndatasets, exploring its generalizability across different imaging \nprotocols, and integrating it into real-world clinical workflows to assess \nits impact on patient outcomes. By further optimizing deep learning \nand radiomics-driven techniques, this approach has the potential to \nrevolutionize MTS diagnosis and improve patient management.\nData availability statement\nThe raw data supporting the conclusions of this article will be \nmade available upon request, subject to approval by the institution and \nthe corresponding author.\nEthics statement\nThe studies involving humans were approved by the Second \nAffiliated Hospital of Fujian Medical University. The studies were \nconducted in accordance with the local legislation and institutional \nrequirements. The participants provided their written informed \nconsent to participate in this study. Written informed consent was \nobtained from the individual(s) for the publication of any potentially \nidentifiable images or data included in this article.\nAuthor contributions\nLC: Methodology, Writing – original draft, Writing – review & \nediting, Conceptualization. D-LL: Conceptualization, Data curation, \nInvestigation, Software, Writing  – review & editing. H-FZ: \nConceptualization, Formal analysis, Resources, Supervision, \nValidation, Visualization, Writing – review & editing. C-ZQ: Project \nadministration, Writing – original draft, Writing – review & editing.\nFunding\nThe author(s) declare that financial support was received for the \nresearch and/or publication of this article. This work was supported \nby the Joint Funds of the Science and Technology Innovation Program \nof Fujian Province (Grant/Award Number: 2024Y97010851).\nConflict of interest\nThe authors declare that the research was conducted in the \nabsence of any commercial or financial relationships that could \nbe construed as a potential conflict of interest.\nGenerative AI statement\nThe authors declare that no Gen AI was used in the creation of \nthis manuscript.\nPublisher’s note\nAll claims expressed in this article are solely those of the authors \nand do not necessarily represent those of their affiliated \norganizations, or those of the publisher, the editors and the \nreviewers. Any product that may be evaluated in this article, or \nclaim that may be made by its manufacturer, is not guaranteed or \nendorsed by the publisher.",
+      "references": [
+        {
+          "raw": "1. Kim JH, Lee SK, Kim EH, Kim JY. Acute left iliofemoral vein thrombosis: comparison between simple and bony May-Thurner syndrome in CT venography. Vascular. (2022) 31:1230–9. doi: 10.1177/17085381221111010",
+          "title": "",
+          "author": "",
+          "year": "2022"
+        },
+        {
+          "raw": "2. Nagarsheth K, Fitzpatrick S, Castillo L, Abdulrahman L, Dunlap E. Surgical anteriorization of the left common iliac vein results in improved venous outflow and quality of life for May-Thurner syndrome. J Vasc Surg Cases Innov Tech. (2024) 10:101495. doi: 10.1016/j.jvscit.2024.101495",
+          "title": "",
+          "author": "Nagarsheth K, Fitzpatrick S, Castillo L, Abdulrahman L, Dunlap E. Surgical",
+          "year": "2024"
+        },
+        {
+          "raw": "3. Sigua-Arce P, Mando R, Spencer L, Halalau A. Treatment of may-Thurner's syndrome and associated complications: a multicenter experience. Int J Gen Med. (2021) 14:4705–10. doi: 10.2147/ijgm.S325231",
+          "title": "",
+          "author": "Sigua-Arce P, Mando R, Spencer L, Halalau A. Treatment",
+          "year": "2021"
+        },
+        {
+          "raw": "4. Channane H, Spiliotis PM, Sandica AM, Snopok I, Viebahn R. A rare cause of unilateral leg swelling: May-Thurner syndrome. J Surg Case Rep. (2023) 2023:rjad232. doi: 10.1093/jscr/rjad232",
+          "title": "",
+          "author": "Channane H",
+          "year": "2023"
+        },
+        {
+          "raw": "5. Hng J, Su S, Atkinson N. May-Thurner syndrome, a diagnosis to consider in young males with no risk factors: a case report and review of the literature. J Med Case Rep. (2021) 15:141. doi: 10.1186/s13256-021-02730-8",
+          "title": "",
+          "author": "Hng J",
+          "year": "2021"
+        },
+        {
+          "raw": "6. Esposito A, Charisis N, Kantarovsky A, Uhl JF, Labropoulos N. A comprehensive review of the pathophysiology and clinical importance of iliac vein obstruction. Eur J Vasc Endovasc Surg. (2020) 60:118–25. doi: 10.1016/j.ejvs.2020.03.020",
+          "title": "",
+          "author": "Esposito A, Charisis N, Kantarovsky A",
+          "year": "2020"
+        },
+        {
+          "raw": "7. Murali N, Gupta R, Desai KR. The role of iliac vein stent placement in pelvic venous disorder management. J Vasc Surg Venous Lymphat Disord. (2024) 12:101696. doi: 10.1016/j.jvsv.2023.101696",
+          "title": "",
+          "author": "Murali N, Gupta R",
+          "year": "2024"
+        },
+        {
+          "raw": "8. Akhmetzianov RV, Bredikhin RA. Clinical efficacy of conservative treatment with micronized purified flavonoid fraction in female patients with pelvic congestion syndrome. Pain Ther. (2021) 10:1567–78. doi: 10.1007/s40122-021-00312-6\fChen et al.\b 10.3389/fmed.2025.1526144 Frontiers in Medicine 11 frontiersin.org",
+          "title": "",
+          "author": "",
+          "year": "2021"
+        },
+        {
+          "raw": "8. Akhmetzianov RV, Bredikhin RA. Clinical efficacy of conservative treatment with micronized purified flavonoid fraction in female patients with pelvic congestion syndrome. Pain Ther. (2021) 10:1567–78. doi: 10.1007/s40122-021-00312-6\fChen et al.\b 10.3389/fmed.2025.1526144 Frontiers in Medicine 11 frontiersin.org",
+          "title": "",
+          "author": "",
+          "year": ""
+        },
+        {
+          "raw": "9. Knuttinen MG, Naidu S, Oklu R, Kriegshauser S, Eversman W, Rotellini L, et al. May-Thurner: diagnosis and endovascular management. Cardiovasc Diagn Ther. (2017) 7:S159–s164. doi: 10.21037/cdt.2017.10.14",
+          "title": "",
+          "author": "Naidu S, Oklu R, Kriegshauser S, Eversman W, Rotellini L, et al.",
+          "year": "2017"
+        },
+        {
+          "raw": "10.Harbin MM, Lutsey PL. May-Thurner syndrome: history of understanding and need for defining population prevalence. J Thromb Haemost. (2020) 18:534–42. doi: 10.1111/jth.14707",
+          "title": "",
+          "author": "J Thromb Haemost",
+          "year": "2020"
+        },
+        {
+          "raw": "11.Silickas J, Black SA, Phinikaridou A, Gwozdz AM, Smith A, Saha P. Use of computed tomography and magnetic resonance imaging in central venous disease. Methodist Debakey Cardiovasc J. (2018) 14:188–95. doi: 10.14797/mdcj-14-3-188",
+          "title": "",
+          "author": "Silickas J",
+          "year": "2018"
+        },
+        {
+          "raw": "12.Phillips-Smith BA, Jatana J, Carter E, Machani S, Wickel DJ. May-Thurner syndrome: an interesting presentation of recurrent, unprovoked deep vein thrombosis. Cureus. (2023) 15:e43491. doi: 10.7759/cureus.43491",
+          "title": "",
+          "author": "Jatana J, Carter E, Machani S",
+          "year": "2023"
+        },
+        {
+          "raw": "13.Laney DFT, Fairchild AH. May-Thurner syndrome presenting with pelvic hemorrhage in the setting of blunt trauma. Case Rep Vasc Med. (2023) 2023:9003408. doi: 10.1155/2023/9003408",
+          "title": "",
+          "author": "Rep Vasc Med.",
+          "year": "2023"
+        },
+        {
+          "raw": "14.Ji Z, Liu J, Mu J, Zhang H, Dai C, Yuan N, et al. ResDAC-net: a novel pancreas segmentation model utilizing residual double asymmetric spatial kernels. Med Biol Eng Comput. (2024) 62:2087–100. doi: 10.1007/s11517-024-03052-9",
+          "title": "",
+          "author": "Liu J",
+          "year": "2024"
+        },
+        {
+          "raw": "15.Haage P, Krings T, Schmitz-Rode T. Nontraumatic vascular emergencies: imaging and intervention in acute venous occlusion. Eur Radiol. (2002) 12:2627–43. doi: 10.1007/s00330-002-1615-8",
+          "title": "",
+          "author": "Haage P, Krings T, Schmitz-Rode T.",
+          "year": "2002"
+        },
+        {
+          "raw": "16.Bayram B, Kunduracioglu I, Ince S, Pacal I. A systematic review of deep learning in MRI-based cerebral vascular occlusion-based brain diseases. Neuroscience. (2025) 568:76–94. doi: 10.1016/j.neuroscience.2025.01.020",
+          "title": "",
+          "author": "Bayram B, Kunduracioglu I, Ince S, Pacal I. A",
+          "year": "2025"
+        },
+        {
+          "raw": "17.Danetz JS, McLafferty RB, Ayerdi J, Gruneiro LA, Ramsey DE, Hodgson KJ. Selective venography versus nonselective venography before vena cava filter placement: evidence for more, not less. J Vasc Surg. (2003) 38:928–34. doi: 10.1016/s0741-5214(03)00911-x",
+          "title": "",
+          "author": "Ayerdi J",
+          "year": "2003"
+        },
+        {
+          "raw": "18. Nana P, Giordano A, Panuccio G, Torrealba JI, Rohlffs F, Kölbel T. Factors affecting compression of the left subclavian artery bridging stent in zone 2 fenestrated endovascular arch repair. J Endovasc Ther. (2024) 4:15266028241267753. doi: 10.1177/15266028241267753",
+          "title": "",
+          "author": "Nana P, Giordano A, Panuccio G",
+          "year": "2024"
+        },
+        {
+          "raw": "19.Ballard JL, Wang Z, Li W, Shen L, Long Q. Deep learning-based approaches for multi-omics data integration and analysis. BioData Min. (2024) 17:38. doi: 10.1186/s13040-024-00391-z",
+          "title": "",
+          "author": "Wang Z",
+          "year": "2024"
+        },
+        {
+          "raw": "20. ButrosSR,LiuR,OliveiraGR,GanguliS,KalvaS.Venouscompressionsyndromes: clinical features, imaging findings and management. Br J Radiol. (2013) 86:20130284. doi: 10.1259/bjr.20130284",
+          "title": "",
+          "author": "J Radiol",
+          "year": "2013"
+        },
+        {
+          "raw": "21.Gagne PJ, Tahara RW, Fastabend CP, Dzieciuchowicz L, Marston W, Vedantham S, et al. Venography versus intravascular ultrasound for diagnosing and treating iliofemoral vein obstruction. J Vasc Surg Venous Lymphat Disord. (2017) 5:678–87. doi: 10.1016/j.jvsv.2017.04.007",
+          "title": "",
+          "author": "Dzieciuchowicz L, Marston W, Vedantham S, et al.",
+          "year": "2017"
+        },
+        {
+          "raw": "22.Jayaraj A, Raju S. Three-dimensional computed tomography venogram enables accurate diagnosis and treatment of patients presenting with symptomatic chronic iliofemoral venous obstruction. J Vasc Surg Venous Lymphat Disord. (2021) 9:73–80.e1. doi: 10.1016/j.jvsv.2020.07.012",
+          "title": "",
+          "author": "Jayaraj A, Raju S. Three-dimensional",
+          "year": "2021"
+        },
+        {
+          "raw": "23.Chen X, Wang X, Zhang K, Fung KM, Thai TC, Moore K, et al. Recent advances and clinical applications of deep learning in medical image analysis. Med Image Anal. (2022) 79:102444. doi: 10.1016/j.media.2022.102444",
+          "title": "",
+          "author": "Chen X, Wang X, Zhang K",
+          "year": "2022"
+        },
+        {
+          "raw": "24.Suk HI, Liu M, Cao X, Kim J. Editorial: advances in deep learning methods for medical image analysis. Front Radiol. (2022) 2:1097533. doi: 10.3389/fradi.2022.1097533",
+          "title": "",
+          "author": "Liu M, Cao X, Kim J. Editorial",
+          "year": "2022"
+        },
+        {
+          "raw": "25.Alam MS, Rashid MM, Faizabadi AR, Mohd Zaki HF, Alam TE, Ali MS, et al. Efficient deep learning-based data-centric approach for autism Spectrum disorder diagnosis from facial images using explainable AI. Technologies. (2023) 11:115. doi: 10.3390/technologies11050115",
+          "title": "",
+          "author": "MS, et al.",
+          "year": "2023"
+        },
+        {
+          "raw": "26.Aggarwal R, Sounderajah V, Martin G, Ting DSW, Karthikesalingam A, King D, et al. Diagnostic accuracy of deep learning in medical imaging: a systematic review and meta-analysis. NPJ Digit Med. (2021) 4:65. doi: 10.1038/s41746-021-00438-z",
+          "title": "",
+          "author": "Aggarwal R, Sounderajah V, Martin G",
+          "year": "2021"
+        },
+        {
+          "raw": "27.Chan HP, Samala RK, Hadjiiski LM, Zhou C. Deep learning in medical image analysis. Adv Exp Med Biol. (2020) 1213:3–21. doi: 10.1007/978-3-030-33128-3_1",
+          "title": "",
+          "author": "Zhou C. Deep",
+          "year": "2020"
+        },
+        {
+          "raw": "28.He M, Cao Y, Chi C, Yang X, Ramin R, Wang S, et al. Research progress on deep learning in magnetic resonance imaging-based diagnosis and treatment of prostate cancer: a review on the current status and perspectives. Front Oncol. (2023) 13:1189370. doi: 10.3389/fonc.2023.1189370",
+          "title": "",
+          "author": "Cao Y, Chi C, Yang X, Ramin R, Wang S, et al.",
+          "year": "2023"
+        },
+        {
+          "raw": "29.Narula N, Dannenberg AJ, Olin JW, Bhatt DL, Johnson KW, Nadkarni G, et al. Pathology of peripheral artery disease in patients with critical limb ischemia. J Am Coll Cardiol. (2018) 72:2152–63. doi: 10.1016/j.jacc.2018.08.002",
+          "title": "",
+          "author": "Narula N",
+          "year": "2018"
+        },
+        {
+          "raw": "30.Char DS, Shah NH, Magnus D. Implementing machine learning in health care— addressing ethical challenges. N Engl J Med. (2018) 378:981–3. doi: 10.1056/NEJMp1714229",
+          "title": "",
+          "author": "Magnus D. Implementing",
+          "year": "2018"
+        },
+        {
+          "raw": "31.Zhang Y, Wang J, Gorriz JM, Wang S. Deep learning and vision transformer for medical image analysis. J Imaging. (2023) 9:147. doi: 10.3390/jimaging9070147",
+          "title": "",
+          "author": "Zhang Y, Wang J",
+          "year": "2023"
+        },
+        {
+          "raw": "32.Zeng M, Teng B, Zhao Y, Li F, Wang X, Jiang C, et al. Effectiveness of iliac vein stenting combined with endovenous laser treatment of recurrent varicose veins associated with iliac vein compression. Quant Imaging Med Surg. (2023) 13:5986–95. doi: 10.21037/qims-22-1280",
+          "title": "",
+          "author": "Zeng M, Teng B, Zhao Y",
+          "year": "2023"
+        },
+        {
+          "raw": "33.Haig Y, Enden T, Grøtta O, Kløw NE, Slagsvold CE, Ghanima W, et al. Postthrombotic syndrome after catheter-directed thrombolysis for deep vein thrombosis (CaVenT): 5-year follow-up results of an open-label, randomised controlled trial. Lancet Haematol. (2016) 3:e64–71. doi: 10.1016/s2352-3026(15)00248-3",
+          "title": "",
+          "author": "Haig Y, Enden T, Grøtta O",
+          "year": "2016"
+        },
+        {
+          "raw": "34.Li C., Zia M, Tran Q, Yu X, Hager GD, Chandraker M. Deep supervision with shape concepts for occlusion-aware 3D object parsing–supplementary material. (2016). arXiv [Preprint].",
+          "title": "",
+          "author": "Zia M, Tran Q",
+          "year": "2016"
+        },
+        {
+          "raw": "35.Chen L.-C., Zhu Y., Papandreou G., Schroff F., Adam H. In: Proceedings of the European conference on computer vision (ECCV). 801–818.",
+          "title": "",
+          "author": "Chen L.-C., Zhu Y., Papandreou G., Schroff F., Adam H. In",
+          "year": ""
+        },
+        {
+          "raw": "36.Navab N., Hornegger J., Wells W. M., Frangi A. Medical image computing and computer-assisted intervention–MICCAI 2015. In: 18th international conference, Munich, Germany, October 5–9, 2015, proceedings, part III. (Springer) (2015).",
+          "title": "",
+          "author": "Navab N., Hornegger J., Wells W. M., Frangi A. Medical",
+          "year": "2015"
+        },
+        {
+          "raw": "37. KuoY-S,ChenCJ,ChenJJ,LinCH,KuJW,HsuHL,etal.May–Thurnersyndrome: correlation between digital subtraction and computed tomography venography.J Formos Med Assoc. (2015) 114:363–8. doi: 10.1016/j.jfma.2012.12.004",
+          "title": "",
+          "author": "Formos Med",
+          "year": "2015"
+        },
+        {
+          "raw": "38.Zhao Z, Zhang H, Liu B, Shi H, Liu X, Ye K, et al. Three-dimensional computed tomography venography reconstruction facilitates identification of atypical radiologic features of May-Thurner syndrome. J Vasc Surg Venous Lymphat Disord. (2021) 9:946–53. doi: 10.1016/j.jvsv.2020.11.014",
+          "title": "",
+          "author": "Zhao Z, Zhang H, Liu B, Shi H, Liu X",
+          "year": "2021"
+        },
+        {
+          "raw": "39.Li J, Xia F, Wang X, Jin Y, Yan J, Wei X, et al. Multiclassifier Radiomics analysis of ultrasound for prediction of Extrathyroidal extension in papillary thyroid carcinoma in children. Int J Med Sci. (2023) 20:278–86. doi: 10.7150/ijms.79758",
+          "title": "",
+          "author": "Xia F, Wang X, Jin Y, Yan J, Wei X, et al.",
+          "year": "2023"
+        },
+        {
+          "raw": "40.Lu C, Xia Y, Han J, Chen W, Qiao X, Gao R, et al. Multiphase comparative study for WHO/ISUP nuclear grading diagnostic model based on enhanced CT images of clearcellrenalcellcarcinoma.SciRep.(2024)14:12043.doi:10.1038/s41598-024-60921-x",
+          "title": "",
+          "author": "Xia Y, Han J, Chen W, Qiao X, Gao R, et al.",
+          "year": "2024"
+        },
+        {
+          "raw": "41.Liu WX, Wu H, Cai C, Lai QQ, Wang Y, Li YZ. Research on automatic recognition radiomics algorithm for early sacroiliac arthritis based on sacroiliac MRI imaging. J Orthop Surg Res. (2024) 19:96. doi: 10.1186/s13018-024-04569-3",
+          "title": "",
+          "author": "Cai C",
+          "year": "2024"
+        },
+        {
+          "raw": "42.Teng X, Zhang J, Han X, Sun J, Lam SK, Ai QYH, et al. Explainable machine learning via intra-tumoral radiomics feature mapping for patient stratification in adjuvant chemotherapy for locoregionally advanced nasopharyngeal carcinoma. Radiol Med. (2023) 128:828–38. doi: 10.1007/s11547-023-01650-5",
+          "title": "",
+          "author": "Teng X, Zhang J, Han X, Sun J",
+          "year": "2023"
+        },
+        {
+          "raw": "43.Lin K, Sarnari R, Gordon DZ, Markl M, Carr JC. Cine MRI-derived radiomics features indicate hemodynamic changes in the pulmonary artery. Int J Cardiovasc Imaging. (2024) 40:287–94. doi: 10.1007/s10554-023-03007-5",
+          "title": "",
+          "author": "Lin K, Sarnari R",
+          "year": "2024"
+        },
+        {
+          "raw": "44.Yang T, Zhang L, Sun S, Yao X, Wang L, Ge Y. Identifying severe communityacquired pneumonia using radiomics and clinical data: a machine learning approach. Sci Rep. (2024) 14:21884. doi: 10.1038/s41598-024-72310-5",
+          "title": "",
+          "author": "Yang T, Zhang L, Sun S, Yao X, Wang L",
+          "year": "2024"
+        },
+        {
+          "raw": "45.Weng Q, Zhou L, Wang H, Hui J, Chen M, Pang P, et al. A radiomics model for determining the invasiveness of solitary pulmonary nodules that manifest as part-solid nodules. Clin Radiol. (2019) 74:933–43. doi: 10.1016/j.crad.2019.07.026",
+          "title": "",
+          "author": "Weng Q, Zhou L, Wang H, Hui J, Chen M, Pang P, et al.",
+          "year": "2019"
+        },
+        {
+          "raw": "46. SunJ,PanL,ZhaT,XingW,ChenJ,DuanS.TheroleofMRItextureanalysisbased on susceptibility-weighted imaging in predicting Fuhrman grade of clear cell renal cell carcinoma. Acta Radiol. (2021) 62:1104–11. doi: 10.1177/0284185120951964",
+          "title": "",
+          "author": "",
+          "year": "2021"
+        },
+        {
+          "raw": "47.Chen X, Li Y, Zhou Y, Yang Y, Yang J, Pang P, et al. CT-based radiomics for differentiating intracranial contrast extravasation from intraparenchymal haemorrhage after mechanical thrombectomy. Eur Radiol. (2022) 32:4771–9. doi: 10.1007/s00330-022-08541-9",
+          "title": "",
+          "author": "Chen X",
+          "year": "2022"
+        },
+        {
+          "raw": "48.Zhu HN, Guo YF, Lin YM, Sun ZC, Zhu X, Li YZ. Radiomics analysis of thoracic vertebral bone marrow microenvironment changes before bone metastasis of breast cancer based on chest CT. J Bone Oncol. (2025) 50:100653. doi: 10.1016/j.jbo.2024.100653",
+          "title": "",
+          "author": "Zhu X",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "id": "nature14539",
+      "path": "/Users/zazai/workspace/zazai840/ResearchRank/sample_pdf/nature14539.pdf",
+      "title": "1Facebook AI Research, 770 Broadway, New York, New York 10003 USA. 2New York University, 715 Broadway, New York, New York 10003, USA. 3Department of Computer Science and Operations",
+      "authors": [
+        "Research Université de Montréal",
+        "Pavillon André-Aisenstadt",
+        "PO Box 6128  Centre-Ville STN Montréal",
+        "Quebec H3C 3J7",
+        "Canada. 4Google",
+        "1600 Amphitheatre Parkway",
+        "Mountain View",
+        "California"
+      ],
+      "year": 2015,
+      "abstract": "",
+      "introduction": "",
+      "conclusion": "",
+      "references": [
+        {
+          "raw": "1. Krizhevsky, A., Sutskever, I. & Hinton, G. ImageNet classification with deep convolutional neural networks. In Proc. Advances in Neural Information Processing Systems 25 1090–1098 (2012). This report was a breakthrough that used convolutional nets to almost halve the error rate for object recognition, and precipitated the rapid adoption of deep learning by the computer vision community.",
+          "title": "",
+          "author": "Krizhevsky, A., Sutskever, I. & Hinton, G.",
+          "year": "2012"
+        },
+        {
+          "raw": "2. Farabet, C., Couprie, C., Najman, L. & LeCun, Y. Learning hierarchical features for scene labeling. IEEE Trans. Pattern Anal. Mach. Intell. 35, 1915–1929 (2013).",
+          "title": "",
+          "author": "Farabet, C., Couprie, C., Najman, L. & LeCun, Y.",
+          "year": "2013"
+        },
+        {
+          "raw": "3. Tompson, J., Jain, A., LeCun, Y. & Bregler, C. Joint training of a convolutional network and a graphical model for human pose estimation. In Proc. Advances in Neural Information Processing Systems 27 1799–1807 (2014).",
+          "title": "",
+          "author": "Tompson, J., Jain, A., LeCun, Y. & Bregler, C.",
+          "year": "2014"
+        },
+        {
+          "raw": "4. Szegedy, C. et al. Going deeper with convolutions. Preprint at http://arxiv.org/ abs/1409.4842 (2014).",
+          "title": "",
+          "author": "Szegedy, C. et al.",
+          "year": "2014"
+        },
+        {
+          "raw": "5. Mikolov, T., Deoras, A., Povey, D., Burget, L. & Cernocky, J. Strategies for training large scale neural network language models. In Proc. Automatic Speech Recognition and Understanding 196–201 (2011).",
+          "title": "",
+          "author": "Mikolov, T., Deoras, A., Povey, D., Burget, L. & Cernocky, J.",
+          "year": "2011"
+        },
+        {
+          "raw": "6. Hinton, G. et al. Deep neural networks for acoustic modeling in speech recognition. IEEE Signal Processing Magazine 29, 82–97 (2012). This joint paper from the major speech recognition laboratories, summarizing the breakthrough achieved with deep learning on the task of phonetic classification for automatic speech recognition, was the first major industrial application of deep learning.",
+          "title": "",
+          "author": "Hinton, G. et al.",
+          "year": "2012"
+        },
+        {
+          "raw": "7. Sainath, T., Mohamed, A.-R., Kingsbury, B. & Ramabhadran, B. Deep convolutional neural networks for LVCSR. In Proc. Acoustics, Speech and Signal Processing 8614–8618 (2013).",
+          "title": "",
+          "author": "Sainath, T., Mohamed, A.-R., Kingsbury, B. & Ramabhadran, B.",
+          "year": "2013"
+        },
+        {
+          "raw": "8. Ma, J., Sheridan, R. P., Liaw, A., Dahl, G. E. & Svetnik, V. Deep neural nets as a method for quantitative structure-activity relationships. J. Chem. Inf. Model. 55, 263–274 (2015).",
+          "title": "",
+          "author": "Sheridan, R. P., Liaw, A., Dahl, G. E. & Svetnik, V.",
+          "year": "2015"
+        },
+        {
+          "raw": "9. Ciodaro, T., Deva, D., de Seixas, J. & Damazio, D. Online particle detection with neural networks based on topological calorimetry information. J. Phys. Conf. Series 368, 012030 (2012).",
+          "title": "",
+          "author": "Ciodaro, T., Deva, D., de Seixas, J. & Damazio, D.",
+          "year": "2012"
+        },
+        {
+          "raw": "10. Kaggle. Higgs boson machine learning challenge. Kaggle https://www.kaggle. com/c/higgs-boson (2014).",
+          "title": "",
+          "author": "",
+          "year": "2014"
+        },
+        {
+          "raw": "11. Helmstaedter, M. et al. Connectomic reconstruction of the inner plexiform layer in the mouse retina. Nature 500, 168–174 (2013). xt xt−1 xt+1 x Unfold V W W W W W V V V U U U U s o st−1 ot−1 ot st st+1 ot+1",
+          "title": "",
+          "author": "Helmstaedter, M. et al.",
+          "year": "2013"
+        }
+      ]
+    },
+    {
+      "id": "science.aaa8415",
+      "path": "/Users/zazai/workspace/zazai840/ResearchRank/sample_pdf/science.aaa8415.pdf",
+      "title": "Machine learning: Trends, perspectives, and prospects",
+      "authors": [
+        "informed discussions among policy-makers",
+        "the"
+      ],
+      "year": 2014,
+      "abstract": "",
+      "introduction": "",
+      "conclusion": "",
+      "references": [
+        {
+          "raw": "1. T. Hastie, R. Tibshirani, J. Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction (Springer, New York, 2011).",
+          "title": "",
+          "author": "T. Hastie, R. Tibshirani, J. Friedman",
+          "year": "2011"
+        },
+        {
+          "raw": "2. K. Murphy, Machine Learning: A Probabilistic Perspective (MIT Press, Cambridge, MA, 2012).",
+          "title": "",
+          "author": "K. Murphy",
+          "year": "2012"
+        },
+        {
+          "raw": "3. L. Valiant, Commun. ACM 27, 1134–1142 (1984).",
+          "title": "",
+          "author": "L. Valiant",
+          "year": "1984"
+        },
+        {
+          "raw": "4. V. Chandrasekaran, M. I. Jordan, Proc. Natl. Acad. Sci. U.S.A. 110, E1181–E1190 (2013).",
+          "title": "",
+          "author": "V. Chandrasekaran, M. I. Jordan",
+          "year": "2013"
+        },
+        {
+          "raw": "5. S. Decatur, O. Goldreich, D. Ron, SIAM J. Comput. 29, 854–879 (2000).",
+          "title": "",
+          "author": "S. Decatur, O. Goldreich, D. Ron",
+          "year": "2000"
+        },
+        {
+          "raw": "6. S. Shalev-Shwartz, O. Shamir, E. Tromer, Using more data to speed up training time, Proceedings of the Fifteenth Conference on Artificial Intelligence and Statistics, Canary Islands, Spain, 21 to 23 April, 2012.",
+          "title": "",
+          "author": "S. Shalev-Shwartz, O. Shamir, E. Tromer",
+          "year": "2012"
+        },
+        {
+          "raw": "7. S. Boyd, N. Parikh, E. Chu, B. Peleato, J. Eckstein, in Foundations and Trends in Machine Learning 3 (Now Publishers, Boston, 2011), pp. 1–122.",
+          "title": "",
+          "author": "S. Boyd, N. Parikh, E. Chu, B. Peleato, J. Eckstein",
+          "year": "2011"
+        },
+        {
+          "raw": "8. S. Sra, S. Nowozin, S. Wright, Optimization for Machine Learning (MIT Press, Cambridge, MA, 2011).",
+          "title": "",
+          "author": "S. Sra, S. Nowozin, S. Wright",
+          "year": "2011"
+        },
+        {
+          "raw": "9. J. Schmidhuber, Neural Netw. 61, 85–117 (2015).",
+          "title": "",
+          "author": "J. Schmidhuber",
+          "year": "2015"
+        },
+        {
+          "raw": "10. Y. Bengio, in Foundations and Trends in Machine Learning 2 (Now Publishers, Boston, 2009), pp. 1–127.",
+          "title": "",
+          "author": "Y. Bengio",
+          "year": "2009"
+        },
+        {
+          "raw": "11. A. Krizhevsky, I. Sutskever, G. Hinton, Adv. Neural Inf. Process. Syst. 25, 1097–1105 (2015).",
+          "title": "",
+          "author": "A. Krizhevsky, I. Sutskever, G. Hinton",
+          "year": "2015"
+        },
+        {
+          "raw": "12. G. Hinton et al., IEEE Signal Process. Mag. 29, 82–97 (2012).",
+          "title": "",
+          "author": "G. Hinton et al.",
+          "year": "2012"
+        },
+        {
+          "raw": "13. G. E. Hinton, R. R. Salakhutdinov, Science 313, 504–507 (2006).",
+          "title": "",
+          "author": "G. E. Hinton, R. R. Salakhutdinov",
+          "year": "2006"
+        },
+        {
+          "raw": "14. V. Mnih et al., Nature 518, 529–533 (2015).",
+          "title": "",
+          "author": "V. Mnih et al.",
+          "year": "2015"
+        },
+        {
+          "raw": "15. R. S. Sutton, A. G. Barto, Reinforcement Learning: An Introduction (MIT Press, Cambridge, MA, 1998).",
+          "title": "",
+          "author": "R. S. Sutton, A. G. Barto",
+          "year": "1998"
+        },
+        {
+          "raw": "16. E. Yaylali, J. S. Ivy, Partially observable MDPs (POMDPs): Introduction and examples. Encyclopedia of Operations Research and Management Science (John Wiley, New York, 2011).",
+          "title": "",
+          "author": "E. Yaylali, J. S. Ivy",
+          "year": "2011"
+        },
+        {
+          "raw": "17. W. Schultz, P. Dayan, P. R. Montague, Science 275, 1593–1599 (1997).",
+          "title": "",
+          "author": "W. Schultz, P. Dayan, P. R. Montague",
+          "year": "1997"
+        },
+        {
+          "raw": "18. C. Dwork, F. McSherry, K. Nissim, A. Smith, in Proceedings of the Third Theory of Cryptography Conference, New York, 4 to 7 March 2006, pp. 265–284.",
+          "title": "",
+          "author": "C. Dwork, F. McSherry, K. Nissim, A. Smith",
+          "year": "2006"
+        },
+        {
+          "raw": "19. A. Blum, K. Ligett, A. Roth, J. ACM 20, (2013).",
+          "title": "",
+          "author": "A. Blum, K. Ligett, A. Roth, J. ACM",
+          "year": "2013"
+        },
+        {
+          "raw": "20. J. Duchi, M. I. Jordan, J. Wainwright, J. ACM 61, 1–57 (2014).",
+          "title": "",
+          "author": "J. Duchi, M. I. Jordan, J. Wainwright",
+          "year": "2014"
+        },
+        {
+          "raw": "21. M.-F. Balcan, A. Blum, S. Fine, Y. Mansour, Distributed learning, communication complexity and privacy. Proceedings of the 29th Conference on Computational Learning Theory, Edinburgh, UK, 26 June to 1 July 2012.",
+          "title": "",
+          "author": "M.-F. Balcan, A. Blum, S. Fine, Y. Mansour",
+          "year": "2012"
+        },
+        {
+          "raw": "22. Y. Zhang, J. Duchi, M. Jordan, M. Wainwright, in Advances in Neural Information Processing Systems 26, L. Bottou, C. Burges, Z. Ghahramani, M. Welling, Eds. (Curran Associates, Red Hook, NY, 2014), pp. 1–",
+          "title": "",
+          "author": "Y. Zhang, J. Duchi, M. Jordan, M. Wainwright",
+          "year": "2014"
+        },
+        {
+          "raw": "23. 23. Q. Berthet, P. Rigollet, Ann. Stat. 41, 1780–1815 (2013).",
+          "title": "",
+          "author": "Q. Berthet, P. Rigollet",
+          "year": "2013"
+        },
+        {
+          "raw": "24. A. Kleiner, A. Talwalkar, P. Sarkar, M. I. Jordan, J. R. Stat. Soc., B 76, 795–816 (2014).",
+          "title": "",
+          "author": "A. Kleiner, A. Talwalkar, P. Sarkar, M. I. Jordan",
+          "year": "2014"
+        },
+        {
+          "raw": "25. M. Mahoney, Found. Trends Machine Learn. 3, 123–224 (2011).",
+          "title": "",
+          "author": "M. Mahoney",
+          "year": "2011"
+        },
+        {
+          "raw": "26. T. Mitchell et al., Proceedings of the Twenty-Ninth Conference on Artificial Intelligence (AAAI-15), 25 to 30 January 2015, Austin, TX.",
+          "title": "",
+          "author": "T. Mitchell et al.",
+          "year": "2015"
+        },
+        {
+          "raw": "27. M. Taylor, P. Stone, J. Mach. Learn. Res. 10, 1633–1685 (2009).",
+          "title": "",
+          "author": "M. Taylor, P. Stone",
+          "year": "2009"
+        },
+        {
+          "raw": "28. S. Thrun, L. Pratt, Learning To Learn (Kluwer Academic Press, Boston, 1998).",
+          "title": "",
+          "author": "S. Thrun, L. Pratt",
+          "year": ""
+        },
+        {
+          "raw": "28. S. Thrun, L. Pratt, Learning To Learn (Kluwer Academic Press, Boston, 1998).",
+          "title": "",
+          "author": "S. Thrun, L. Pratt",
+          "year": "1998"
+        },
+        {
+          "raw": "29. L. Wehbe et al., PLOS ONE 9, e112575 (2014).",
+          "title": "",
+          "author": "L. Wehbe et al.",
+          "year": "2014"
+        },
+        {
+          "raw": "30. K. Xu et al., Proceedings of the 32nd International Conference on Machine Learning, vol. 37, Lille, France, 6 to 11 July 2015, pp. 2048–2057.",
+          "title": "",
+          "author": "K. Xu et al.",
+          "year": "2015"
+        },
+        {
+          "raw": "31. D. Blei, Commun. ACM 55, 77–84 (2012). 10.1126/science.aaa8415 260 17 JULY 2015 • VOL 349 ISSUE 6245 sciencemag.org SCIENCE Cancer genomics, energy debugging, smart buildings Sample clean BlinkDB Spark Core Succinct Tachyon Mesos Hadoop Yarn HDFS, S3, Ceph, … In-house apps Access and interfaces Processing engine Storage Resource virtualization AMPLab developed Spark Community 3rd party SparkSQL Spark streaming Velox SparkR",
+          "title": "",
+          "author": "D. Blei",
+          "year": "2012"
+        }
+      ]
+    }
+  ]
+}

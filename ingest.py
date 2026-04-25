@@ -3,6 +3,8 @@
 import json
 import logging
 import re
+import shutil
+import tempfile
 from pathlib import Path
 from typing import Optional
 
@@ -13,6 +15,43 @@ from refextract import extract_references_from_file
 # refextract logs INFO/WARNING verbosely; silence it
 for _log in ("refextract", "refextract.references", "refextract.core"):
     logging.getLogger(_log).setLevel(logging.ERROR)
+
+
+def _patch_refextract_for_macos() -> None:
+    # macOS lacks mremap(), so mmap.resize() raises SystemError inside
+    # refextract's clean_pdf_file.  Replace it with a pure-Python equivalent
+    # that uses regular file I/O.  The patch is idempotent and only needed on
+    # platforms where mmap resize is unavailable.
+    import mmap as _mmap
+    import refextract.references.engine as _eng
+
+    if getattr(_eng, "_macos_patched", False):
+        return
+    try:
+        m = _mmap.mmap(-1, 4096)
+        m.resize(8192)
+        m.close()
+    except SystemError:
+        def _clean_pdf_portable(filename: str) -> None:
+            with open(filename, "rb") as f:
+                data = f.read()
+            start = data.find(b"%PDF-")
+            if start == -1:
+                return
+            end = data.rfind(b"%%EOF")
+            if end == -1:
+                return
+            end_off = end + len(b"%%EOF")
+            if start == 0 and end_off == len(data):
+                return
+            with open(filename, "wb") as f:
+                f.write(data[start:end_off])
+
+        _eng.clean_pdf_file = _clean_pdf_portable
+    _eng._macos_patched = True
+
+
+_patch_refextract_for_macos()
 
 logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.WARNING)
 
@@ -159,7 +198,7 @@ def ingest(
     for pdf in pdfs:
         pid = pdf.stem
         mtime = pdf.stat().st_mtime
-        if pid in cache and cache[pid] == mtime and pid in existing:
+        if pid in cache and cache[pid] == mtime and pid in existing and existing[pid].get("references"):
             typer.echo(f"[skip]  {pdf.name}")
             papers.append(existing[pid])
             continue
